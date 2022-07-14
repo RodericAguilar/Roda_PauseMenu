@@ -102,10 +102,3 @@ AddEventHandler('esx:setJob', function(job)
         value = job.label.." - "..job.grade_label
     })
 end)
-
--- Maybe 1.1
-
-RegisterNetEvent('es:activateMoney')
-AddEventHandler('es:activateMoney', function(e)
-	SendNUIMessage({action = "UpdateData", key = "money", value = tonumber(e)})
-end)
