@@ -3,8 +3,8 @@ RegisterCommand('openSetting', function()
     OpenPauseMenu()
 end)
 
-RegisterKeyMapping('openSetting', 'Open Settings Menu', 'keyboard', 'ESCAPE')
-
+RegisterKeyMapping('openSetting', 'Open Pause Menu', 'keyboard', 'ESCAPE')
+TriggerEvent('chat:removeSuggestion', '/openSetting')
 
 function OpenPauseMenu()
     if not open and not IsPauseMenuActive() then 
