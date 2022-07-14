@@ -1,5 +1,3 @@
-ESX = exports['es_extended']:getSharedObject()
-
 ESX.RegisterServerCallback("Roda_PauseMenu:Getserverdata", function(src, cb)
     local xPlayer = ESX.GetPlayerFromId(src)
     if not xPlayer then return end

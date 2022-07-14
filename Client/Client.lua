@@ -1,6 +1,3 @@
-
-local ESX = exports["es_extended"]:getSharedObject()
-
 local open = false
 RegisterCommand('openSetting', function()
     OpenPauseMenu()
