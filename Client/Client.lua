@@ -27,12 +27,10 @@ RegisterNUICallback('Getcolor', function(data, cb)
 end)
 
 function GetDataFromServer()
-    ESX.TriggerServerCallback("Roda_PauseMenu:Getserverdata", function(xPlayer, money, dirtymoney, bankmoney, max, total) 
-		local data = xPlayer
+    ESX.TriggerServerCallback("Roda_PauseMenu:Getserverdata", function(job, money, dirtymoney, bankmoney, max, total) 
 		SendNUIMessage({action = "UpdateData", key = "bankmoney", value = tonumber(bankmoney)})
 		SendNUIMessage({action = "UpdateData", key = "dirtymoney", value = tonumber(dirtymoney)})
         SendNUIMessage({action = "UpdateData", key = "money", value = tonumber(money)})
-		local job = data.job
 		SendNUIMessage({action = "UpdateData", key = "job", value = job.label.." - "..job.grade_label})
         SendNUIMessage({action = 'updatePlayers', max = max, total = total})
 	end)

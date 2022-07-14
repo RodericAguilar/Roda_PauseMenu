@@ -3,7 +3,7 @@ ESX.RegisterServerCallback("Roda_PauseMenu:Getserverdata", function(src, cb)
     if not xPlayer then return end
     local MaxPlayers = GetConvarInt('sv_maxclients', 32)
     local TotalPlayers = GetNumPlayerIndices()
-    cb(xPlayer,xPlayer.getMoney(), xPlayer.getAccount('black_money').money, xPlayer.getAccount('bank').money, MaxPlayers, TotalPlayers)
+    cb(xPlayer.job,xPlayer.getMoney(), xPlayer.getAccount('black_money').money, xPlayer.getAccount('bank').money, MaxPlayers, TotalPlayers)
 end)
 
 ESX.RegisterServerCallback("Roda_PauseMenu:GetOnlineJobs", function(src, cb)
