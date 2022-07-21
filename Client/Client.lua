@@ -1,13 +1,10 @@
-
-local ESX = exports["es_extended"]:getSharedObject()
-
 local open = false
 RegisterCommand('openSetting', function()
     OpenPauseMenu()
 end)
 
-RegisterKeyMapping('openSetting', 'Open Settings Menu', 'keyboard', 'ESCAPE')
-
+RegisterKeyMapping('openSetting', 'Open Pause Menu', 'keyboard', 'ESCAPE')
+TriggerEvent('chat:removeSuggestion', '/openSetting')
 
 function OpenPauseMenu()
     if not open and not IsPauseMenuActive() then 
@@ -30,12 +27,10 @@ RegisterNUICallback('Getcolor', function(data, cb)
 end)
 
 function GetDataFromServer()
-    ESX.TriggerServerCallback("Roda_PauseMenu:Getserverdata", function(xPlayer, money, dirtymoney, bankmoney, max, total) 
-		local data = xPlayer
+    ESX.TriggerServerCallback("Roda_PauseMenu:Getserverdata", function(job, money, dirtymoney, bankmoney, max, total) 
 		SendNUIMessage({action = "UpdateData", key = "bankmoney", value = tonumber(bankmoney)})
 		SendNUIMessage({action = "UpdateData", key = "dirtymoney", value = tonumber(dirtymoney)})
         SendNUIMessage({action = "UpdateData", key = "money", value = tonumber(money)})
-		local job = data.job
 		SendNUIMessage({action = "UpdateData", key = "job", value = job.label.." - "..job.grade_label})
         SendNUIMessage({action = 'updatePlayers', max = max, total = total})
 	end)
@@ -106,11 +101,4 @@ AddEventHandler('esx:setJob', function(job)
         key = "job", 
         value = job.label.." - "..job.grade_label
     })
-end)
-
--- Maybe 1.1
-
-RegisterNetEvent('es:activateMoney')
-AddEventHandler('es:activateMoney', function(e)
-	SendNUIMessage({action = "UpdateData", key = "money", value = tonumber(e)})
 end)

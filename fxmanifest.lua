@@ -15,7 +15,9 @@ server_scripts {
  'Server/*.lua'
 }
 
+--Shared Scripts-- 
 shared_scripts {
+    '@es_extended/imports.lua',
     'Config.lua'
 }
 
