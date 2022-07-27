@@ -1,6 +1,5 @@
 Config = {}
 
-Config.MainColor = 'blue'
 Config.JobsToShow = {
     {job = 'police', icon = '🚓​'},
     {job = 'ambulance', icon = '🚑​'},
