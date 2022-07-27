@@ -19,12 +19,8 @@ function OpenPauseMenu()
     end
 end
 
-RegisterNUICallback('Getcolor', function(data, cb)
-    SendNUIMessage({
-        action = 'color',
-        color = Config.MainColor
-    })
-end)
+
+
 
 function GetDataFromServer()
     ESX.TriggerServerCallback("Roda_PauseMenu:Getserverdata", function(job, money, dirtymoney, bankmoney, max, total) 
